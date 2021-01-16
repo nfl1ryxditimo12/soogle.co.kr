@@ -1,0 +1,68 @@
+{% load static %}
+<html lang="ko">
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intitial-scale=1">
+
+    <!--  CSS, JS  -->
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'summernote-lite.css' %}">
+
+
+    <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'summernote-lite.js' %}"></script>
+    <script src="{% static 'summernote-ko-KR.js' %}"></script>
+
+    <title>우덜의 소통공간^^</title>
+
+    {% block header %}
+    {% endblock %}
+
+</head>
+<body>
+{% include "navbar.html" %}
+
+<div class="container">
+{% block contents %}
+{% endblock %}
+</div>
+
+
+{% block script %}
+{% endblock %}
+
+<script>
+        function dp_menu(){
+            let click = document.getElementById("navbarColor03");
+            if(click.style.display === "block"){
+                click.style.display = "none";
+
+            }else{
+                click.style.display = "block";
+
+            }
+        }
+    </script>
+
+<script>
+    $(document).ready(function() {
+     $('#summernote').summernote({
+             height: 300,                 // set editor height
+             minHeight: null,             // set minimum height of editor
+             maxHeight: null,             // set maximum height of editor
+             focus: true                  // set focus to editable area after initializing summernote
+     });
+});
+
+$(document).ready(function() {
+  $('#summernote').summernote();
+});
+
+
+</script>
+
+</body>
+</html>
